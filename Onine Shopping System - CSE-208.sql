@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2021 at 03:22 PM
+-- Generation Time: Nov 12, 2021 at 06:00 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -32,24 +32,25 @@ CREATE TABLE `address` (
   `Apartment_Number` varchar(20) DEFAULT NULL,
   `Street` varchar(20) DEFAULT NULL,
   `Apartment_Name` varchar(20) DEFAULT NULL,
-  `Customer_ID` varchar(20) DEFAULT NULL
+  `Customer_ID` varchar(20) DEFAULT NULL,
+  `Zipcode_ID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `address`
 --
 
-INSERT INTO `address` (`Address_ID`, `Apartment_Number`, `Street`, `Apartment_Name`, `Customer_ID`) VALUES
-('AID01', '089', 'Basundhara', 'Shanti Kunjo', 'CS01'),
-('AID02', '028', 'Basabo', 'Bilash Vobon', 'CS02'),
-('AID03', '087', 'Badda', 'Chondro Bilash', 'CS03'),
-('AID04', '042', 'Nikunjo', 'Krishno Chura', 'CS04'),
-('AID05', '052', 'Mogbazar', 'Jolpai Tower', 'CS05'),
-('AID06', '765', 'Pilkhana', 'Cresend Tower', 'CS06'),
-('AID07', '897', 'Banani', 'Chowdhury Villa', 'CS07'),
-('AID08', '987', 'Mirpur', 'Santi Niketon', 'CS08'),
-('AID09', '129', 'Savar', 'Varsity Colony', 'CS09'),
-('AID10', '943', 'Gulshan', 'Khan Villa', 'CS10');
+INSERT INTO `address` (`Address_ID`, `Apartment_Number`, `Street`, `Apartment_Name`, `Customer_ID`, `Zipcode_ID`) VALUES
+('AID01', '089', 'Basundhara', 'Shanti Kunjo', 'CS01', '1220'),
+('AID02', '028', 'Basabo', 'Bilash Vobon', 'CS02', '1210'),
+('AID03', '087', 'Badda', 'Chondro Bilash', 'CS03', '1212'),
+('AID04', '042', 'Nikunjo', 'Krishno Chura', 'CS04', '1229'),
+('AID05', '052', 'Mogbazar', 'Jolpai Tower', 'CS05', '1217'),
+('AID06', '765', 'Pilkhana', 'Cresend Tower', 'CS06', '1260'),
+('AID07', '897', 'Banani', 'Chowdhury Villa', 'CS07', '1213'),
+('AID08', '987', 'Mirpur', 'Santi Niketon', 'CS08', '1216'),
+('AID09', '129', 'Savar', 'Bank Colony', 'CS09', '1344'),
+('AID10', '943', 'Gulshan', 'Khan Villa', 'CS10', '1214');
 
 -- --------------------------------------------------------
 
@@ -161,16 +162,16 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`Employee_ID`, `Employee_Name`, `ssn`, `Designation`, `Employee_Type`, `Salary`, `Payment_ID`) VALUES
-('EID01', 'Tony stark', '445', 'Manager', 'Regular', '40000', 'PM01'),
-('EID02', 'Samira', '342', 'Cashier', 'Regular', '25000', 'PM02'),
-('EID03', 'Labiba', '289', 'Receptionist', 'Regular', '25000', 'PM03'),
-('EID04', 'Sam', '109', 'Assistant Manager', 'Regular', '30000', 'PM04'),
-('EID05', 'Stives', '209', 'Sales Man', 'Regular', '15000', 'PM05'),
-('EID06', 'Jack', '107', 'Sales Man', 'Regular', '15000', 'PM06'),
-('EID07', 'Natasa', '103', 'Sales Man', 'Regular', '15000', 'PM07'),
-('EID08', 'Karisma', '203', 'Sales Man', 'Regular', '15000', 'PM08'),
-('EID09', 'Qiana', '376', 'Sales Man', 'Regular', '15000', 'PM09'),
-('EID10', 'Jeet', '465', 'Product Manager', 'Regular', '25500', 'PM10');
+('EID01', 'Tony stark', '445', 'Manager', 'Full Time', '40000', 'PM01'),
+('EID02', 'Samira', '342', 'Cashier', 'Full Time', '25000', 'PM02'),
+('EID03', 'Labiba', '289', 'Receptionist', 'Full Time', '25000', 'PM03'),
+('EID04', 'Sam', '109', 'Assistant Manager', 'Part Time', '30000', 'PM04'),
+('EID05', 'Stives', '209', 'Sales Man', 'Part Time', '15000', 'PM05'),
+('EID06', 'Jack', '107', 'Sales Man', 'Full Time', '15000', 'PM06'),
+('EID07', 'Natasa', '103', 'Sales Man', 'Full Time', '15000', 'PM07'),
+('EID08', 'Karisma', '203', 'Sales Man', 'Part Time', '15000', 'PM08'),
+('EID09', 'Qiana', '376', 'Sales Man', 'Part Time', '15000', 'PM09'),
+('EID10', 'Jeet', '465', 'Product Manager', 'Full Time', '25500', 'PM10');
 
 -- --------------------------------------------------------
 
@@ -210,7 +211,7 @@ CREATE TABLE `orders` (
   `Order_ID` varchar(20) NOT NULL,
   `Order_Date` varchar(20) DEFAULT NULL,
   `Status` varchar(20) DEFAULT NULL,
-  `Shippent_Duration` varchar(20) DEFAULT NULL,
+  `Shipment_Duration` varchar(20) DEFAULT NULL,
   `Payment_ID` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -218,17 +219,17 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`Order_ID`, `Order_Date`, `Status`, `Shippent_Duration`, `Payment_ID`) VALUES
-('OR01', '23-10-2020', 'Delivered', '15 days', 'PM01'),
-('OR02', '25-01-2021', 'Delivered', '03 days', 'PM02'),
-('OR03', '23-09-2020', 'Delivered', '15 days', 'PM03'),
-('OR04', '21-03-2021', 'Delivered', '06 days', 'PM04'),
-('OR05', '21-06-2021', 'Delvered', '07 days', 'PM05'),
-('OR06', '12-05-2021', 'Returned', '10 days', 'PM06'),
-('OR07', '13-07-2021', 'Delivered', '15 days', 'PM07'),
-('OR08', '16-08-2021', 'Delivered', '12 days', 'PM08'),
-('OR09', '17-09-2021', 'Delivered', '02 days', 'PM09'),
-('OR10', '30-12-2020', 'Delivered', '10 days', 'PM10');
+INSERT INTO `orders` (`Order_ID`, `Order_Date`, `Status`, `Shipment_Duration`, `Payment_ID`) VALUES
+('OR01', '23/10/2020', 'In Progress', 'Immediate', 'PM01'),
+('OR02', '25/01/2021', 'In Progress', 'Immediate', 'PM02'),
+('OR03', '23/09/2020', 'Shipped', 'Within 5 days', 'PM03'),
+('OR04', '21/03/2021', 'Shipped', 'Within 1 week', 'PM04'),
+('OR05', '21/06/2021', 'Partially Shipped', 'Within 1 week', 'PM05'),
+('OR06', '12/05/2021', 'In Progress', 'Immediate', 'PM06'),
+('OR07', '13/07/2021', 'Shipped', 'Within 3 days', 'PM07'),
+('OR08', '16/08/2021', 'Partially Shipped', 'Within 1 week', 'PM08'),
+('OR09', '17/09/2021', 'Shipped', 'Within 3 days', 'PM09'),
+('OR10', '30/12/2020', 'In Progress', 'Immediate', 'PM10');
 
 -- --------------------------------------------------------
 
@@ -354,17 +355,18 @@ CREATE TABLE `reviews` (
   `Quality_Rating` varchar(20) DEFAULT NULL,
   `Defect%` varchar(20) DEFAULT NULL,
   `Review_ID` varchar(20) NOT NULL,
-  `Review_Date` varchar(20) DEFAULT NULL
+  `Review_Date` varchar(20) DEFAULT NULL,
+  `Product_ID` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reviews`
 --
 
-INSERT INTO `reviews` (`Quality_Rating`, `Defect%`, `Review_ID`, `Review_Date`) VALUES
-('100', '0', 'PR01', '23-01-2021'),
-('90', '10', 'PR02', '25-02-2021'),
-('85', '15', 'PR03', '20-03-2021');
+INSERT INTO `reviews` (`Quality_Rating`, `Defect%`, `Review_ID`, `Review_Date`, `Product_ID`) VALUES
+('100', '0', 'PR01', '23-01-2021', 'P01'),
+('90', '10', 'PR02', '25-02-2021', 'P02'),
+('85', '15', 'PR03', '20-03-2021', 'P03');
 
 -- --------------------------------------------------------
 
@@ -447,7 +449,8 @@ INSERT INTO `zip code` (`State`, `Zipcode_ID`, `City`, `Address_ID`) VALUES
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`Address_ID`),
-  ADD KEY `Index5` (`Customer_ID`);
+  ADD KEY `Index5` (`Customer_ID`),
+  ADD KEY `Index6713` (`Zipcode_ID`);
 
 --
 -- Indexes for table `bill`
@@ -524,7 +527,8 @@ ALTER TABLE `product group`
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`Review_ID`);
+  ADD PRIMARY KEY (`Review_ID`),
+  ADD KEY `IX_Relationship5` (`Product_ID`);
 
 --
 -- Indexes for table `supplier`
